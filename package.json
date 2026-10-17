@@ -1,11 +1,11 @@
 {
-  "name": "pythia-mcp",
+  "name": "openai-images-mcp",
   "version": "2.0.0",
-  "description": "Pythia: an MCP oracle for OpenAI's multimodal API. Image, voice, transcription, embeddings, moderation.",
+  "description": "OpenAI Images: an MCP oracle for OpenAI's multimodal API. Image, voice, transcription, embeddings, moderation.",
   "type": "module",
   "main": "index.js",
   "bin": {
-    "pythia-mcp": "./index.js"
+    "openai-images-mcp": "./index.js"
   },
   "scripts": {
     "start": "node index.js"
@@ -20,7 +20,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hello-emrah/pythia-mcp.git"
+    "url": "https://github.com/hello-emrah/openai-images-mcp.git"
   },
   "keywords": [
     "mcp",

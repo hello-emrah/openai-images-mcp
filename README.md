@@ -1,11 +1,13 @@
 <p align="center">
-  <img src="assets/logo.png" alt="Pythia" width="240" />
+  <img src="assets/logo.png" alt="OpenAI Images" width="240" />
 </p>
 
-<h1 align="center">Pythia</h1>
+<h1 align="center">OpenAI Images</h1>
+
+<p align="center"><em>Formerly Pythia.</em></p>
 
 <p align="center">
-  An MCP oracle for the OpenAI multimodal API.<br/>
+  An MCP server for OpenAI's image models.<br/>
   Image generation and editing.<br/>
   <strong>Works with files on disk, not in a browser tab.</strong>
 </p>
@@ -17,9 +19,9 @@
 
 ---
 
-The Pythia spoke for Apollo, god of music, poetry, prophecy, and the sun. Her oracular voice was the multimodal interface to a god's mind. This MCP server is the same idea, smaller god. Whatever OpenAI's image models can make or edit, Pythia hands back to whatever model is driving Claude Code.
+An MCP server for OpenAI's image models. Whatever they can make or edit, this hands back to whatever model is driving Claude Code.
 
-If you have ever dragged the same reference image into ChatGPT five times to iterate, or copied generated assets out of a browser back into your project folder, that friction is the tax this removes. Pythia reads images from your local filesystem and writes the results back to disk. No tabs, no drag-and-drop, no exported JSON to wrangle. The model does the work; your filesystem is the surface.
+If you have ever dragged the same reference image into ChatGPT five times to iterate, or copied generated assets out of a browser back into your project folder, that friction is the tax this removes. OpenAI Images reads images from your local filesystem and writes the results back to disk. No tabs, no drag-and-drop, no exported JSON to wrangle. The model does the work; your filesystem is the surface.
 
 ## Tools
 
@@ -33,7 +35,7 @@ Every model default is overridable per call and via environment variable, so a n
 ### Disk conventions
 
 - **Inputs** for `edit_image` are absolute or `~`-relative local file paths.
-- **Outputs** are written to disk. Provide `output_path` per call, or let Pythia drop them in `OPENAI_IMAGE_OUTPUT_DIR` with a timestamped filename.
+- **Outputs** are written to disk. Provide `output_path` per call, or let OpenAI Images drop them in `OPENAI_IMAGE_OUTPUT_DIR` with a timestamped filename.
 
 ## Requirements
 
@@ -43,8 +45,8 @@ Every model default is overridable per call and via environment variable, so a n
 ## Install
 
 ```bash
-git clone https://github.com/hello-emrah/pythia-mcp.git
-cd pythia-mcp
+git clone https://github.com/hello-emrah/openai-images-mcp.git
+cd openai-images-mcp
 npm install
 cp .env.example .env
 # Edit .env and add your OPENAI_API_KEY
@@ -57,9 +59,9 @@ Add an entry to `~/.claude.json` under `mcpServers`:
 ```json
 {
   "mcpServers": {
-    "pythia": {
+    "openai-images": {
       "command": "node",
-      "args": ["/absolute/path/to/pythia-mcp/index.js"],
+      "args": ["/absolute/path/to/openai-images-mcp/index.js"],
       "env": {
         "OPENAI_API_KEY": "sk-..."
       }
@@ -68,7 +70,7 @@ Add an entry to `~/.claude.json` under `mcpServers`:
 }
 ```
 
-Restart Claude Code. The tools appear under the `mcp__pythia__*` namespace.
+Restart Claude Code. The tools appear under the `mcp__openai-images__*` namespace.
 
 ## Environment variables
 
@@ -115,10 +117,6 @@ Speech, transcription, embeddings and moderation were removed in v3: images only
 ## CLI fallback
 
 A standalone Python CLI (`image-gen.py`) is included for one-shot image generation outside the MCP server. See `IMAGE-GEN-HOWTO.md`.
-
-## Why "Pythia"
-
-The Pythia was the Oracle of Delphi, the priestess through whom Apollo spoke. The name signals what this tool does: you speak, and something is given back. Pythia was not an image-specific oracle. She covered Apollo's full domain. This one has narrowed to images.
 
 ## Design philosophy
 
